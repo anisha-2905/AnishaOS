@@ -1,0 +1,209 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 1.5rem;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 42%, rgb(61 22 81 / 0.46), transparent 17rem),
+    radial-gradient(circle at 82% 12%, rgb(84 26 76 / 0.3), transparent 18rem),
+    linear-gradient(180deg, #02030b 0%, #050814 52%, #090716 100%);
+  color: #f6d7ff;
+  font-family: 'Courier New', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0;
+}
+
+.boot-screen__stars,
+.boot-screen__particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.boot-screen__stars {
+  background:
+    radial-gradient(circle at 8% 18%, #ffe7a8 0 1px, transparent 2px),
+    radial-gradient(circle at 18% 46%, #b66cff 0 1px, transparent 2px),
+    radial-gradient(circle at 30% 24%, #f6a8ff 0 1px, transparent 2px),
+    radial-gradient(circle at 42% 70%, #fff1ba 0 1px, transparent 2px),
+    radial-gradient(circle at 55% 18%, #8a35c4 0 1px, transparent 2px),
+    radial-gradient(circle at 68% 52%, #f6a8ff 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 30%, #ffe7a8 0 1px, transparent 2px),
+    radial-gradient(circle at 91% 72%, #b66cff 0 1px, transparent 2px),
+    radial-gradient(circle at 14% 78%, #fff1ba 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 84%, #f6a8ff 0 1px, transparent 2px);
+  opacity: 0.42;
+}
+
+.boot-screen__stars::before,
+.boot-screen__stars::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background:
+    radial-gradient(circle at 6% 62%, rgb(255 231 168 / 0.68) 0 1px, transparent 2px),
+    radial-gradient(circle at 24% 12%, rgb(246 168 255 / 0.7) 0 1px, transparent 2px),
+    radial-gradient(circle at 38% 38%, rgb(182 108 255 / 0.72) 0 1px, transparent 2px),
+    radial-gradient(circle at 58% 76%, rgb(255 241 186 / 0.64) 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 18%, rgb(246 168 255 / 0.74) 0 1px, transparent 2px),
+    radial-gradient(circle at 96% 44%, rgb(255 231 168 / 0.58) 0 1px, transparent 2px);
+}
+
+.boot-screen__stars::before {
+  opacity: 0.36;
+}
+
+.boot-screen__stars::after {
+  opacity: 0.22;
+  transform: translateY(1.5rem);
+}
+
+.boot-screen__particles {
+  opacity: 0.18;
+  background:
+    radial-gradient(circle at 16% 22%, #b66cff 0 2px, transparent 3px),
+    radial-gradient(circle at 26% 66%, #f6a8ff 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 28%, #ffe7a8 0 2px, transparent 3px),
+    radial-gradient(circle at 62% 72%, #8a35c4 0 2px, transparent 3px),
+    radial-gradient(circle at 84% 58%, #f6a8ff 0 2px, transparent 3px);
+}
+
+.boot-screen__mascot {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 120px;
+  image-rendering: pixelated;
+}
+
+.boot-screen__mascot::before,
+.boot-screen__mascot::after {
+  position: absolute;
+  inset: -1.15rem;
+  content: '';
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 28%, rgb(255 231 168 / 0.92) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 24%, rgb(246 168 255 / 0.78) 0 1px, transparent 2px),
+    radial-gradient(circle at 74% 82%, rgb(255 241 186 / 0.74) 0 1px, transparent 2px),
+    radial-gradient(circle at 26% 78%, rgb(182 108 255 / 0.66) 0 1px, transparent 2px);
+  image-rendering: pixelated;
+  opacity: 0.34;
+  animation: boot-mascot-sparkle 3.8s ease-in-out infinite;
+}
+
+.boot-screen__mascot::after {
+  inset: -1.7rem;
+  opacity: 0.2;
+  animation-delay: 1.4s;
+}
+
+.boot-screen__mascot-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter:
+    drop-shadow(0 0 1rem rgb(255 143 184 / 0.24))
+    drop-shadow(0 0 1.75rem rgb(182 108 255 / 0.18));
+  user-select: none;
+  pointer-events: none;
+  animation: boot-mascot-glow 4.4s ease-in-out infinite;
+}
+
+.boot-screen__text {
+  position: relative;
+  z-index: 1;
+  min-width: min(20rem, calc(100vw - 2rem));
+  margin: 0;
+  color: #f7d7ff;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-shadow:
+    0 0 0.65rem rgb(255 143 184 / 0.72),
+    0 0 1.15rem rgb(182 108 255 / 0.42);
+}
+
+.boot-screen__cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  margin-left: 0.16rem;
+  background: #f6a8ff;
+  box-shadow: 0 0 0.7rem rgb(255 143 184 / 0.7);
+  transform: translateY(0.14em);
+  animation: boot-cursor-blink 0.78s steps(1, end) infinite;
+}
+
+@keyframes boot-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes boot-mascot-sparkle {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  45% {
+    opacity: 0.46;
+    transform: translate3d(0, -1px, 0) scale(1.01);
+  }
+
+  70% {
+    opacity: 0.28;
+  }
+}
+
+@keyframes boot-mascot-glow {
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 1rem rgb(255 143 184 / 0.22))
+      drop-shadow(0 0 1.75rem rgb(182 108 255 / 0.16));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 1.15rem rgb(255 143 184 / 0.32))
+      drop-shadow(0 0 2rem rgb(182 108 255 / 0.24));
+  }
+}
+
+@media (max-width: 560px) {
+  .boot-screen {
+    gap: 1.2rem;
+  }
+
+  .boot-screen__mascot {
+    width: 80px;
+  }
+}
+
+@media (min-width: 561px) and (max-width: 1023px) {
+  .boot-screen__mascot {
+    width: 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-screen__mascot::before,
+  .boot-screen__mascot::after,
+  .boot-screen__mascot-image,
+  .boot-screen__cursor {
+    animation: none;
+  }
+}

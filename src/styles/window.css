@@ -1,0 +1,106 @@
+.window-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.window {
+  position: absolute;
+  top: clamp(5.5rem, 12vh, 8rem);
+  left: clamp(7.5rem, 24vw, 18rem);
+  display: flex;
+  flex-direction: column;
+  width: min(34rem, calc(100vw - 2rem));
+  min-height: 18rem;
+  max-height: calc(100vh - var(--taskbar-height) - 2rem);
+  max-height: calc(100dvh - var(--taskbar-height) - 2rem);
+  overflow: hidden;
+  border: 1px solid rgb(244 234 255 / 0.24);
+  border-radius: var(--radius-lg);
+  background: rgb(12 4 25 / 0.9);
+  box-shadow:
+    0 26px 70px rgb(7 2 13 / 0.56),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+  color: var(--color-text);
+  pointer-events: auto;
+}
+
+.window[data-active='true'] {
+  border-color: rgb(244 234 255 / 0.42);
+  box-shadow:
+    0 30px 90px rgb(7 2 13 / 0.66),
+    0 0 0 1px rgb(182 108 255 / 0.18),
+    inset 0 1px 0 rgb(255 255 255 / 0.1);
+}
+
+.window__titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.65rem;
+  padding: 0 0.45rem 0 0.85rem;
+  border-bottom: 1px solid rgb(244 234 255 / 0.14);
+  background: linear-gradient(
+    180deg,
+    rgb(244 234 255 / 0.11),
+    rgb(244 234 255 / 0.04)
+  );
+  cursor: grab;
+  user-select: none;
+}
+
+.window:active .window__titlebar {
+  cursor: grabbing;
+}
+
+.window__title {
+  overflow: hidden;
+  color: var(--color-text);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.window__close-button {
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  aspect-ratio: 1;
+  border: 1px solid rgb(244 234 255 / 0.16);
+  border-radius: var(--radius-sm);
+  background: rgb(244 234 255 / 0.08);
+  color: var(--color-text-muted);
+  cursor: default;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.window__close-button:hover,
+.window__close-button:focus-visible {
+  border-color: rgb(255 143 184 / 0.45);
+  background: rgb(255 143 184 / 0.2);
+  color: var(--color-text);
+  outline: none;
+}
+
+.window__content {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 1rem;
+}
+
+@media (max-width: 680px) {
+  .window {
+    top: 4.75rem;
+    left: 0.75rem;
+    width: calc(100vw - 1.5rem);
+    min-height: 16rem;
+  }
+}

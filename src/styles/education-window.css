@@ -1,0 +1,831 @@
+.window[aria-label='Education.exe'] {
+  width: min(62rem, calc(100vw - 2rem));
+  min-width: min(46rem, calc(100vw - 2rem));
+  min-height: min(40rem, calc(100vh - var(--taskbar-height) - 2rem));
+}
+
+.window[aria-label='Education.exe'] .window__content {
+  overflow: hidden;
+  padding: 0;
+}
+
+.education-map {
+  position: relative;
+  width: 100%;
+  height: min(39rem, calc(100vh - var(--taskbar-height) - 5rem));
+  height: min(39rem, calc(100dvh - var(--taskbar-height) - 5rem));
+  min-height: 29rem;
+  overflow: hidden;
+  color: #f4eaff;
+  font-family: 'Courier New', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.education-map__scroll {
+  position: absolute;
+  inset: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-color: rgb(182 108 255 / 0.45) rgb(7 2 13 / 0.8);
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+.education-map__scene {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 28% 21%, rgb(255 143 184 / 0.14), transparent 16rem),
+    radial-gradient(circle at 78% 42%, rgb(118 201 255 / 0.12), transparent 18rem),
+    radial-gradient(circle at 44% 61%, rgb(182 108 255 / 0.22), transparent 22rem),
+    linear-gradient(180deg, #050712 0%, #0a0617 46%, #080313 100%);
+}
+
+.education-map__stars,
+.education-map__nebula {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.education-map__stars {
+  background:
+    radial-gradient(circle at 8% 8%, rgb(255 255 255 / 0.78) 0 1px, transparent 2px),
+    radial-gradient(circle at 27% 15%, rgb(255 225 166 / 0.62) 0 1px, transparent 2px),
+    radial-gradient(circle at 76% 12%, rgb(244 234 255 / 0.72) 0 1px, transparent 2px),
+    radial-gradient(circle at 91% 24%, rgb(216 180 254 / 0.58) 0 1px, transparent 2px),
+    radial-gradient(circle at 14% 39%, rgb(244 234 255 / 0.48) 0 1px, transparent 2px),
+    radial-gradient(circle at 84% 53%, rgb(255 255 255 / 0.62) 0 1px, transparent 2px),
+    radial-gradient(circle at 23% 68%, rgb(216 180 254 / 0.52) 0 1px, transparent 2px),
+    radial-gradient(circle at 68% 78%, rgb(255 225 166 / 0.52) 0 1px, transparent 2px),
+    radial-gradient(circle at 45% 91%, rgb(255 255 255 / 0.6) 0 1px, transparent 2px);
+  background-size: 420px 520px;
+  opacity: 0.68;
+  animation: education-stars-twinkle 10s ease-in-out infinite;
+}
+
+.education-map__nebula {
+  background:
+    radial-gradient(ellipse at 40% 24%, rgb(138 92 246 / 0.12), transparent 23rem),
+    radial-gradient(ellipse at 68% 70%, rgb(255 143 184 / 0.07), transparent 24rem);
+  opacity: 0.82;
+  animation: education-nebula-breathe 14s ease-in-out infinite;
+}
+
+.education-route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.education-route path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.education-route__glow {
+  stroke: rgb(182 108 255 / 0.18);
+  stroke-linecap: round;
+  stroke-width: 10;
+  filter: blur(5px);
+}
+
+.education-route__line {
+  stroke: rgb(244 234 255 / 0.18);
+  stroke-dasharray: 8 12;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.education-route__complete {
+  stroke: rgb(182 108 255 / 0.68);
+  stroke-dasharray: 0 1;
+  stroke-linecap: round;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 7px rgb(182 108 255 / 0.42));
+  transition: stroke-dasharray 220ms ease-out;
+}
+
+.education-rocket {
+  position: absolute;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  width: clamp(3.4rem, 6vw, 4.7rem);
+  aspect-ratio: 1;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  transition:
+    left 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: left, top;
+}
+
+.education-rocket__ship {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  transform: rotate(var(--rocket-angle)) translate3d(0, 0, 0);
+  animation: education-rocket-bob 2.2s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.education-rocket img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter:
+    drop-shadow(0 8px 14px rgb(7 2 13 / 0.42))
+    drop-shadow(0 0 18px rgb(255 143 184 / 0.18));
+}
+
+.education-rocket__exhaust {
+  position: absolute;
+  top: 86%;
+  left: 50%;
+  width: 0.38rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgb(255 182 86 / 0.88);
+  box-shadow: 0 0 12px rgb(255 116 43 / 0.55);
+  animation: education-exhaust 580ms ease-out infinite;
+}
+
+.education-rocket__exhaust--two {
+  animation-delay: 180ms;
+  background: rgb(255 143 184 / 0.82);
+}
+
+.education-rocket__exhaust--three {
+  animation-delay: 340ms;
+  background: rgb(255 231 166 / 0.8);
+}
+
+.education-checkpoint {
+  position: absolute;
+  z-index: 4;
+  width: clamp(9rem, 16vw, 12.8rem);
+  transform: translate(-50%, -50%);
+  animation: education-float 5.8s ease-in-out infinite;
+  animation-delay: var(--float-delay);
+  will-change: transform;
+}
+
+.education-checkpoint[data-size='earth'] {
+  width: clamp(22rem, 36vw, 30rem);
+  aspect-ratio: 1;
+}
+
+.education-checkpoint[data-size='sun'] {
+  width: clamp(10rem, 17vw, 14rem);
+}
+
+.earth-system {
+  overflow: visible;
+}
+
+.education-mission {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.earth-system .education-mission {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: clamp(15.5rem, 27vw, 21rem);
+  transform: translate(-50%, -50%);
+}
+
+.education-mission img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter:
+    drop-shadow(0 16px 24px rgb(7 2 13 / 0.42))
+    drop-shadow(0 0 24px color-mix(in srgb, var(--mission-tone) 44%, transparent));
+  pointer-events: none;
+  transition:
+    opacity 300ms ease,
+    filter 240ms ease,
+    transform 240ms ease;
+}
+
+.education-checkpoint[data-size='sun'] .education-mission img {
+  animation: education-sun-breathe 5.8s ease-in-out infinite;
+}
+
+.education-checkpoint[data-size='venus'] .education-mission img {
+  filter:
+    drop-shadow(0 16px 24px rgb(7 2 13 / 0.42))
+    drop-shadow(0 0 28px rgb(255 226 161 / 0.36));
+}
+
+.education-checkpoint[data-size='earth'] .education-mission img {
+  filter:
+    drop-shadow(0 18px 26px rgb(7 2 13 / 0.4))
+    drop-shadow(0 0 36px rgb(118 201 255 / 0.28))
+    drop-shadow(0 0 32px rgb(182 108 255 / 0.13));
+}
+
+.education-mission:hover img,
+.education-mission:focus-visible img,
+.education-checkpoint[data-active='true'] .education-mission img {
+  animation:
+    education-planet-arrival 900ms ease-out 1,
+    education-active-glow 2.8s ease-in-out infinite;
+  transform: scale(1.018);
+  filter:
+    drop-shadow(0 18px 28px rgb(7 2 13 / 0.48))
+    drop-shadow(0 0 36px color-mix(in srgb, var(--mission-tone) 56%, transparent));
+}
+
+.education-mission:focus-visible {
+  outline: none;
+}
+
+.education-mission__marker {
+  position: absolute;
+  top: calc(100% + 0.46rem);
+  left: 50%;
+  max-width: 100%;
+  padding: 0.34rem 0.62rem;
+  border: 1px solid rgb(244 234 255 / 0.2);
+  border-radius: 0.35rem;
+  background: rgb(9 4 19 / 0.74);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.05),
+    0 0 16px rgb(182 108 255 / 0.12);
+  color: rgb(244 234 255 / 0.86);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  transition:
+    box-shadow 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.education-mission:hover .education-mission__marker,
+.education-mission:focus-visible .education-mission__marker,
+.education-checkpoint[data-active='true'] .education-mission__marker {
+  color: #f4eaff;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.06),
+    0 0 18px rgb(182 108 255 / 0.26);
+  transform: translate(-50%, -2px);
+}
+
+.education-checkpoint-card {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1.15rem);
+  z-index: 8;
+  display: grid;
+  gap: 0.82rem;
+  width: clamp(20rem, 33vw, 22.5rem);
+  padding: 1.08rem;
+  border: 1px solid rgb(246 168 255 / 0.24);
+  border-radius: 0.9rem;
+  background:
+    linear-gradient(90deg, rgb(244 234 255 / 0.028) 1px, transparent 1px),
+    linear-gradient(rgb(244 234 255 / 0.024) 1px, transparent 1px),
+    linear-gradient(135deg, rgb(244 234 255 / 0.08), rgb(11 5 23 / 0.72)),
+    rgb(11 5 23 / 0.76);
+  background-size:
+    12px 12px,
+    12px 12px,
+    auto,
+    auto;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.045),
+    0 18px 42px rgb(7 2 13 / 0.48),
+    0 0 24px rgb(182 108 255 / 0.12);
+  opacity: 0.78;
+  text-align: left;
+  transform: translate3d(0, calc(-50% + 14px), 0);
+  transition:
+    opacity 300ms ease-out,
+    border-color 300ms ease-out,
+    box-shadow 300ms ease-out,
+    transform 300ms ease-out;
+  backdrop-filter: blur(12px);
+}
+
+.earth-system .education-checkpoint-card {
+  left: calc(50% + clamp(8.4rem, 14.5vw, 11.2rem));
+}
+
+.education-checkpoint[data-card='left'] .education-checkpoint-card {
+  right: calc(100% + 1.15rem);
+  left: auto;
+}
+
+.education-checkpoint[data-active='true'] .education-checkpoint-card,
+.education-checkpoint:hover .education-checkpoint-card,
+.education-checkpoint:focus-within .education-checkpoint-card {
+  opacity: 1;
+  border-color: rgb(246 168 255 / 0.38);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.06),
+    0 22px 48px rgb(7 2 13 / 0.54),
+    0 0 30px rgb(182 108 255 / 0.22);
+  transform: translate3d(0, -50%, 0);
+}
+
+.education-checkpoint-card__mission {
+  color: #f6a8ff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.education-checkpoint-card h3 {
+  margin: 0;
+  color: #f4eaff;
+  font-size: clamp(1rem, 1.6vw, 1.22rem);
+  font-weight: 800;
+  line-height: 1.22;
+  text-shadow: 0 0 16px rgb(182 108 255 / 0.16);
+}
+
+.education-checkpoint-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.education-checkpoint-card__meta span {
+  padding: 0.36rem 0.58rem;
+  border: 1px solid rgb(246 168 255 / 0.2);
+  border-radius: 999px;
+  background: rgb(182 108 255 / 0.1);
+  color: rgb(244 234 255 / 0.78);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.education-checkpoint-card p {
+  margin: 0;
+  color: #fff1ba;
+  font-size: 0.94rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.education-earth-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid rgb(118 201 255 / 0.09);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.education-earth-orbit::before {
+  position: absolute;
+  inset: 20%;
+  content: '';
+  border: 1px dashed rgb(244 234 255 / 0.085);
+  border-radius: 50%;
+}
+
+.education-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transform-origin: 0 0;
+  pointer-events: auto;
+}
+
+.education-orbit img {
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 14px rgb(244 234 255 / 0.22));
+}
+
+.education-orbit > span:not(.education-orbit__panel) {
+  position: absolute;
+  top: 100%;
+  margin-top: 0.28rem;
+  padding: 0.3rem 0.52rem;
+  border: 1px solid rgb(244 234 255 / 0.16);
+  border-radius: 0.3rem;
+  background: rgb(9 4 19 / 0.68);
+  color: rgb(244 234 255 / 0.7);
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    box-shadow 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.education-orbit:hover > span:not(.education-orbit__panel),
+.education-orbit:focus-visible > span:not(.education-orbit__panel),
+.education-orbit[data-active='true'] > span:not(.education-orbit__panel) {
+  color: #f4eaff;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.06),
+    0 0 16px rgb(182 108 255 / 0.24);
+  transform: translateY(-2px);
+}
+
+.education-orbit__panel {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0.7rem);
+  z-index: 10;
+  display: grid;
+  gap: 0.34rem;
+  width: min(21rem, 42vw);
+  padding: 0.9rem;
+  border: 1px solid rgb(246 168 255 / 0.28);
+  border-radius: 0.9rem;
+  background:
+    linear-gradient(90deg, rgb(244 234 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(rgb(244 234 255 / 0.03) 1px, transparent 1px),
+    rgb(11 5 23 / 0.9);
+  background-size: 10px 10px;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.05),
+    0 18px 38px rgb(7 2 13 / 0.48),
+    0 0 24px rgb(182 108 255 / 0.18);
+  opacity: 0;
+  text-align: left;
+  transform: translate3d(-0.3rem, calc(-50% + 14px), 0) scale(0.98);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+}
+
+.education-orbit:hover .education-orbit__panel,
+.education-orbit:focus-visible .education-orbit__panel,
+.education-orbit[data-active='true'] .education-orbit__panel {
+  opacity: 1;
+  transform: translate3d(0, -50%, 0) scale(1);
+}
+
+.education-orbit:focus-visible {
+  outline: 2px solid rgb(246 168 255 / 0.72);
+  outline-offset: 0.35rem;
+}
+
+.education-orbit__panel span,
+.education-orbit__panel em,
+.education-orbit__panel b,
+.education-orbit__panel small {
+  display: block;
+}
+
+.education-orbit__panel span {
+  color: #f6a8ff;
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.education-orbit__panel strong {
+  color: #fff1ba;
+  font-size: 0.84rem;
+  line-height: 1.15;
+}
+
+.education-orbit__panel em {
+  color: rgb(244 234 255 / 0.84);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.education-orbit__panel b {
+  color: rgb(244 234 255 / 0.78);
+  font-size: 0.7rem;
+}
+
+.education-orbit__panel small {
+  color: rgb(201 182 223 / 0.82);
+  font-size: 0.68rem;
+  line-height: 1.42;
+}
+
+.education-orbit__tags,
+.education-project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+}
+
+.education-orbit__tags b {
+  padding: 0.3rem 0.45rem;
+  border: 1px solid rgb(246 168 255 / 0.2);
+  border-radius: 999px;
+  background: rgb(182 108 255 / 0.1);
+  color: rgb(244 234 255 / 0.82);
+  font-size: 0.64rem;
+  line-height: 1;
+}
+
+.education-project-list {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.education-project-list__item {
+  position: relative;
+  display: grid;
+  gap: 0.18rem;
+  padding: 0.34rem 0.46rem;
+  border: 1px solid rgb(244 234 255 / 0.12);
+  border-radius: 0.42rem;
+  background: rgb(244 234 255 / 0.04);
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    transform 220ms ease;
+}
+
+.education-project-list__item:hover {
+  border-color: rgb(246 168 255 / 0.3);
+  background: rgb(182 108 255 / 0.11);
+  transform: translateY(-1px);
+}
+
+.education-project-list__item b {
+  color: rgb(244 234 255 / 0.88);
+  font-size: 0.68rem;
+  line-height: 1.2;
+}
+
+.education-project-list__item small {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 220ms ease,
+    opacity 220ms ease;
+}
+
+.education-project-list__item:hover small {
+  max-height: 3.5rem;
+  opacity: 1;
+}
+
+.education-orbit--moon {
+  animation: education-orbit-moon 20s linear infinite;
+}
+
+.education-orbit--moon img {
+  width: clamp(2.6rem, 5vw, 4rem);
+}
+
+.education-orbit--satellite {
+  animation: education-orbit-satellite 25s linear infinite;
+}
+
+.education-orbit--satellite img {
+  width: clamp(3rem, 5.5vw, 4.3rem);
+}
+
+@keyframes education-stars-twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.82;
+  }
+}
+
+@keyframes education-nebula-breathe {
+  0%,
+  100% {
+    opacity: 0.78;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.96;
+    transform: scale(1.025);
+  }
+}
+
+@keyframes education-float {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes education-rocket-bob {
+  0%,
+  100% {
+    transform: rotate(var(--rocket-angle)) translate3d(0, -2px, 0);
+  }
+
+  50% {
+    transform: rotate(var(--rocket-angle)) translate3d(0, 2px, 0);
+  }
+}
+
+@keyframes education-exhaust {
+  0% {
+    opacity: 0.86;
+    transform: translate3d(-50%, 0, 0) scale(0.65);
+  }
+
+  45% {
+    opacity: 0.7;
+    transform: translate3d(-50%, 0.48rem, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, 1.05rem, 0) scale(0.18);
+  }
+}
+
+@keyframes education-planet-arrival {
+  0% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.045);
+  }
+
+  100% {
+    transform: scale(1.018);
+  }
+}
+
+@keyframes education-active-glow {
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 18px 28px rgb(7 2 13 / 0.46))
+      drop-shadow(0 0 30px color-mix(in srgb, var(--mission-tone) 46%, transparent));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 18px 28px rgb(7 2 13 / 0.46))
+      drop-shadow(0 0 38px color-mix(in srgb, var(--mission-tone) 58%, transparent));
+  }
+}
+
+@keyframes education-sun-breathe {
+  0%,
+  100% {
+    opacity: 0.96;
+    filter:
+      drop-shadow(0 16px 24px rgb(7 2 13 / 0.42))
+      drop-shadow(0 0 24px rgb(255 157 53 / 0.42));
+  }
+
+  50% {
+    opacity: 1;
+    filter:
+      drop-shadow(0 16px 24px rgb(7 2 13 / 0.42))
+      drop-shadow(0 0 34px rgb(255 157 53 / 0.52));
+  }
+}
+
+@keyframes education-orbit-moon {
+  from {
+    transform: rotate(20deg) translateX(clamp(9.8rem, 15vw, 13rem)) rotate(-20deg);
+  }
+
+  to {
+    transform: rotate(380deg) translateX(clamp(9.8rem, 15vw, 13rem)) rotate(-380deg);
+  }
+}
+
+@keyframes education-orbit-satellite {
+  from {
+    transform: rotate(210deg) translateX(clamp(11rem, 17vw, 14.5rem)) rotate(-210deg);
+  }
+
+  to {
+    transform: rotate(570deg) translateX(clamp(11rem, 17vw, 14.5rem)) rotate(-570deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .window[aria-label='Education.exe'] {
+    top: 0.5rem;
+    left: 0.5rem;
+    width: calc(100vw - 1rem);
+    min-width: 0;
+    min-height: calc(100vh - var(--taskbar-height) - 1rem);
+    min-height: calc(100dvh - var(--taskbar-height) - 1rem);
+    max-height: calc(100vh - var(--taskbar-height) - 1rem);
+    max-height: calc(100dvh - var(--taskbar-height) - 1rem);
+  }
+
+  .education-map {
+    height: calc(100vh - var(--taskbar-height) - 3.65rem);
+    height: calc(100dvh - var(--taskbar-height) - 3.65rem);
+    min-height: 0;
+  }
+
+  .education-mission__panel {
+    top: calc(100% + 0.7rem);
+    left: 50%;
+    width: min(17rem, 74vw);
+    transform: translate3d(-50%, -0.4rem, 0) scale(0.98);
+  }
+
+  .education-mission:hover .education-mission__panel,
+  .education-mission:focus-visible .education-mission__panel,
+  .education-mission[data-active='true'] .education-mission__panel {
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+
+  .education-checkpoint-card,
+  .education-checkpoint[data-card='left'] .education-checkpoint-card {
+    top: calc(100% + 0.9rem);
+    right: auto;
+    left: 50%;
+    width: min(20rem, 76vw);
+    transform: translate3d(-50%, 10px, 0);
+  }
+
+  .education-checkpoint[data-active='true'] .education-checkpoint-card,
+  .education-checkpoint:hover .education-checkpoint-card,
+  .education-checkpoint:focus-within .education-checkpoint-card {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  .education-orbit__panel {
+    top: calc(100% + 0.6rem);
+    left: 50%;
+    width: min(15rem, 72vw);
+    transform: translate3d(-50%, -0.3rem, 0) scale(0.98);
+  }
+
+  .education-orbit:hover .education-orbit__panel,
+  .education-orbit:focus-visible .education-orbit__panel,
+  .education-orbit[data-active='true'] .education-orbit__panel {
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .education-map__stars,
+  .education-map__nebula,
+  .education-checkpoint,
+  .education-mission img,
+  .education-rocket__exhaust,
+  .education-rocket__ship,
+  .education-orbit--moon,
+  .education-orbit--satellite {
+    animation: none;
+  }
+
+  .education-rocket {
+    transition: none;
+  }
+}
