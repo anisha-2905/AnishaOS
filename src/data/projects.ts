@@ -1,3 +1,8 @@
+import digiJournalImage from '@/assets/projects/digi-journal.png';
+import faceAttendanceImage from '@/assets/projects/face-attendance.png';
+import mewCafeImage from '@/assets/projects/mewcafe.png';
+import sevenSeasImage from '@/assets/projects/seven-seas-travel.png';
+
 export type Project = {
   id: string;
   title: string;
@@ -26,7 +31,7 @@ export const projects: Project[] = [
       'Excel/PDF report export support', ],
     githubUrl: 'https://github.com/anisha-2905/face-recognition-attendance-system',
     notionUrl: 'https://app.notion.com/p/anishadesigncasestudy/Face-Recognition-Attendance-System-37ee6b5a3aab80cbaff8e60db0a3bddc?v=787e6b5a3aab83aaa4ad08010401b715&source=copy_link',
-    image: 'attendance_scan.preview',
+    image: faceAttendanceImage,
     status: 'Prototype',
   },
   {
@@ -41,7 +46,7 @@ export const projects: Project[] = [
       'Planned backend support with Node.js, Express, and MongoDB', ],
     githubUrl: '',
     notionUrl: '',
-    image: 'journal_archive.preview',
+    image: digiJournalImage,
     status: 'In Progress',
   },
   {
@@ -58,7 +63,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/anisha-2905/seven-seas-travel-website', 
     notionUrl: 'https://app.notion.com/p/anishadesigncasestudy/SevenSeasTravel-Travel-Agency-Website-Case-Study-210e6b5a3aab835baaab01d06a134dd5?v=787e6b5a3aab83aaa4ad08010401b715&source=copy_link',
     liveUrl: 'https://sevenseastravel.in/', 
-    image: 'seven_seas.preview', 
+    image: sevenSeasImage, 
     status: 'Completed',
   },
   {
@@ -74,7 +79,7 @@ export const projects: Project[] = [
       'Built as an academic system design project', ],
     githubUrl: '',
     notionUrl:'',
-    image: 'bioattend_terminal.preview',
+    image: '',
     status: 'Completed',
   },
   {
@@ -90,7 +95,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/anisha-2905',
     notionUrl: 'https://app.notion.com/p/anishadesigncasestudy/MewCafe-Focus-Timer-and-To-do-List-2fde6b5a3aab80b887b0c298f97b7cfe?v=787e6b5a3aab83aaa4ad08010401b715&source=copy_link',
     liveUrl: 'https://mewcafe.framer.website/',
-    image: 'mewcafe_menu.preview',
+    image: mewCafeImage,
     status: 'Completed',
   },
 ];
