@@ -82,56 +82,27 @@
   scrollbar-width: thin;
 }
 
-.mission-terminal__screen span {
+.mission-terminal__line,
+.mission-terminal__current-line {
   display: block;
   min-height: 1.42em;
 }
 
-.mission-terminal__selectable-line,
-.mission-terminal__locked-line {
-  display: block;
-  width: fit-content;
-  min-height: 1.42em;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  line-height: inherit;
-  text-align: left;
-  white-space: pre;
-}
-
-.mission-terminal__selectable-line {
-  cursor: pointer;
-  transition:
-    color 180ms ease,
-    text-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-.mission-terminal__selectable-line span {
-  display: inline;
-  min-height: 0;
-  margin-right: 0.45rem;
-}
-
-.mission-terminal__selectable-line[data-selected='true'],
-.mission-terminal__selectable-line:hover,
-.mission-terminal__selectable-line:focus-visible {
+.mission-terminal__line[data-tone='success'] {
   color: #f4eaff;
   text-shadow:
     0 0 8px rgb(244 234 255 / 0.42),
-    0 0 18px rgb(182 108 255 / 0.44);
-  outline: none;
+    0 0 18px rgb(182 108 255 / 0.36);
 }
 
-.mission-terminal__selectable-line:hover,
-.mission-terminal__selectable-line:focus-visible {
-  transform: translateX(2px);
+.mission-terminal__line[data-tone='error'] {
+  color: #ff8fb8;
+  text-shadow:
+    0 0 8px rgb(255 143 184 / 0.42),
+    0 0 18px rgb(182 108 255 / 0.22);
 }
 
-.mission-terminal__locked-line {
+.mission-terminal__line[data-tone='dim'] {
   color: rgb(182 108 255 / 0.46);
 }
 
@@ -206,9 +177,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .mission-terminal__flicker,
-  .mission-cursor,
-  .mission-terminal__selectable-line {
+  .mission-cursor {
     animation: none;
-    transition: none;
   }
 }
