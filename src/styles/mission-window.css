@@ -83,27 +83,67 @@
 }
 
 .mission-terminal__line,
-.mission-terminal__current-line {
+.mission-terminal__current-line,
+.mission-terminal__option {
   display: block;
   min-height: 1.42em;
 }
 
-.mission-terminal__line[data-tone='success'] {
+.mission-terminal__prompt {
+  color: #b66cff;
+}
+
+.mission-terminal__command {
+  color: #f4eaff;
+}
+
+.mission-terminal__line[data-tone='success'],
+.mission-terminal__option[data-tone='success'] {
   color: #f4eaff;
   text-shadow:
     0 0 8px rgb(244 234 255 / 0.42),
     0 0 18px rgb(182 108 255 / 0.36);
 }
 
-.mission-terminal__line[data-tone='error'] {
+.mission-terminal__line[data-tone='error'],
+.mission-terminal__option[data-tone='error'] {
   color: #ff8fb8;
   text-shadow:
     0 0 8px rgb(255 143 184 / 0.42),
     0 0 18px rgb(182 108 255 / 0.22);
 }
 
-.mission-terminal__line[data-tone='dim'] {
+.mission-terminal__line[data-tone='dim'],
+.mission-terminal__option[data-tone='dim'] {
   color: rgb(182 108 255 / 0.46);
+}
+
+.mission-terminal__option {
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  text-align: left;
+  text-shadow: inherit;
+}
+
+.mission-terminal__option:hover:not(:disabled),
+.mission-terminal__option:focus-visible {
+  color: #f4eaff;
+  text-decoration: underline;
+  text-shadow:
+    0 0 8px rgb(244 234 255 / 0.36),
+    0 0 18px rgb(182 108 255 / 0.28);
+  outline: none;
+}
+
+.mission-terminal__option:disabled {
+  cursor: default;
 }
 
 .mission-terminal__screen .mission-cursor {
