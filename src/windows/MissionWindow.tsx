@@ -246,6 +246,14 @@ function MissionWindow() {
           <span className="mission-cursor" aria-hidden="true" />
         </span>
       </div>
+      <a
+        className="mission-terminal__resume-link"
+        href="/AnishaResume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Resume
+      </a>
     </section>
   );
 }
