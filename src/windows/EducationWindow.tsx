@@ -241,7 +241,9 @@ function EducationWindow() {
                 } as CSSProperties}
               >
                 {isEarth ? (
-                  <div className="education-earth-orbit" aria-label="Earth orbit missions">
+                  <>
+                    <div className="education-earth-orbit" aria-hidden="true" />
+                    <div className="education-earth-orbit-controls" aria-label="Earth orbit missions">
                     <button
                       type="button"
                       className="education-orbit education-orbit--moon"
@@ -297,7 +299,8 @@ function EducationWindow() {
                         </span>
                       </span>
                     </button>
-                  </div>
+                    </div>
+                  </>
                 ) : null}
 
                 <button

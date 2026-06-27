@@ -206,7 +206,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 2;
+  z-index: 3;
   width: clamp(15.5rem, 27vw, 21rem);
   transform: translate(-50%, -50%);
 }
@@ -408,6 +408,17 @@
   pointer-events: none;
 }
 
+.education-earth-orbit-controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 6;
+  width: 100%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
 .education-earth-orbit::before {
   position: absolute;
   inset: 20%;
@@ -420,6 +431,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 4;
   display: grid;
   place-items: center;
   padding: 0;
@@ -440,6 +452,7 @@
 .education-orbit > span:not(.education-orbit__panel) {
   position: absolute;
   top: 100%;
+  z-index: 6;
   margin-top: 0.28rem;
   padding: 0.3rem 0.52rem;
   border: 1px solid rgb(244 234 255 / 0.16);
@@ -470,7 +483,7 @@
   position: absolute;
   top: 50%;
   left: calc(100% + 0.7rem);
-  z-index: 10;
+  z-index: 6;
   display: grid;
   gap: 0.34rem;
   width: min(21rem, 42vw);
