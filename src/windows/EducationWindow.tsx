@@ -236,6 +236,7 @@ function EducationWindow() {
                 style={{
                   left: `${mission.x}%`,
                   top: `${mission.y}px`,
+                  '--mission-x': `${mission.x}vw`,
                   '--mission-tone': mission.tone,
                   '--float-delay': `${index * -0.8}s`,
                 } as CSSProperties}

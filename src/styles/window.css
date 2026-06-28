@@ -142,3 +142,18 @@
     padding: 0.72rem;
   }
 }
+
+@media (max-width: 768px) {
+  .window {
+    height: calc(100dvh - var(--taskbar-height) - 1rem);
+    max-height: calc(100dvh - var(--taskbar-height) - 1rem);
+  }
+
+  .window__content {
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: calc(var(--taskbar-height) + 1.5rem);
+    -webkit-overflow-scrolling: touch;
+  }
+}

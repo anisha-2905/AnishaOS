@@ -941,6 +941,49 @@
   }
 }
 
+@media (max-width: 768px) {
+  .window[aria-label='Education.exe'] {
+    height: calc(100dvh - var(--taskbar-height) - 1rem);
+    max-height: calc(100dvh - var(--taskbar-height) - 1rem);
+  }
+
+  .window[aria-label='Education.exe'] .window__content {
+    min-height: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+
+  .education-map {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .education-map__scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .education-map__scene {
+    padding-bottom: calc(var(--taskbar-height) + 1.5rem);
+  }
+
+  .education-checkpoint-card,
+  .education-checkpoint[data-card='left'] .education-checkpoint-card {
+    left: calc(47vw - var(--mission-x, 50vw));
+    right: auto;
+    width: min(88vw, 360px);
+    max-width: 88vw;
+    transform: translateX(-50%);
+  }
+
+  .education-checkpoint[data-active='true'] .education-checkpoint-card,
+  .education-checkpoint:hover .education-checkpoint-card,
+  .education-checkpoint:focus-within .education-checkpoint-card {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .education-map__stars,
   .education-map__nebula,

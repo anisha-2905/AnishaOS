@@ -942,6 +942,50 @@
   }
 }
 
+@media (max-width: 768px) {
+  .window[aria-label='Projects.exe'] {
+    height: calc(100dvh - var(--taskbar-height) - 1rem);
+    max-height: calc(100dvh - var(--taskbar-height) - 1rem);
+  }
+
+  .window[aria-label='Projects.exe'] .window__content {
+    min-height: 0;
+    overflow: hidden;
+    padding-bottom: 0.58rem;
+  }
+
+  .projects-app {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .projects-app__sidebar {
+    min-height: 0;
+  }
+
+  .projects-app__tree {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .projects-app__main {
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: calc(var(--taskbar-height) + 1.5rem);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .projects-app__content,
+  .projects-app__preview,
+  .projects-app__actions {
+    min-width: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .projects-app__cursor {
     animation: none;

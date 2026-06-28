@@ -322,6 +322,35 @@
   }
 }
 
+@media (max-width: 768px) {
+  .window[aria-label='Mission.exe'] {
+    height: calc(100dvh - var(--taskbar-height) - 1rem);
+    max-height: calc(100dvh - var(--taskbar-height) - 1rem);
+  }
+
+  .window[aria-label='Mission.exe'] .window__content {
+    min-height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .mission-terminal {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .mission-terminal__screen {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: calc(var(--taskbar-height) + 2.75rem);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mission-terminal__resume-link {
+    bottom: max(0.9rem, env(safe-area-inset-bottom));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mission-terminal__flicker,
   .mission-cursor {
