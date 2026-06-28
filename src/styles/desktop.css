@@ -201,6 +201,41 @@
   }
 }
 
+@media (max-width: 768px) {
+  .desktop__icon-layer {
+    --desktop-icon-size: 4.05rem;
+    --desktop-icon-column: 5.9rem;
+    --desktop-icon-row: 6.45rem;
+  }
+
+  .desktop {
+    --desktop-column-1: clamp(0.7rem, 3.4vw, 1.1rem);
+    --desktop-column-2: calc(var(--desktop-column-1) + clamp(6rem, 31vw, 7.1rem));
+    --desktop-row-1: clamp(0.65rem, 3.4vh, 1.45rem);
+    --desktop-row-gap: clamp(6.15rem, 14.8vh, 6.85rem);
+  }
+
+  .desktop-icon {
+    gap: 0.38rem;
+    min-height: var(--desktop-icon-row);
+    padding: 0.42rem 0.32rem;
+  }
+
+  .desktop-icon__label {
+    padding-inline: 0.28rem;
+    font-size: 0.74rem;
+    line-height: 1.16;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .desktop-icon[data-icon-id='about'] .desktop-icon__image {
+    width: 49px;
+    height: 49px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .desktop-icon__tile,
   .desktop-icon__image {

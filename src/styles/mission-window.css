@@ -274,6 +274,54 @@
   }
 }
 
+@media (max-width: 768px) {
+  .window[aria-label='Mission.exe'] {
+    top: max(0.65rem, env(safe-area-inset-top));
+    left: 3vw;
+    width: 94vw;
+    min-width: 0;
+    min-height: 82vh;
+    min-height: 82dvh;
+    max-height: min(88vh, calc(100vh - var(--taskbar-height) - 1rem));
+    max-height: min(88dvh, calc(100dvh - var(--taskbar-height) - 1rem));
+  }
+
+  .mission-terminal {
+    height: calc(100vh - var(--taskbar-height) - 3.85rem);
+    height: calc(100dvh - var(--taskbar-height) - 3.85rem);
+    min-height: 0;
+  }
+
+  .mission-terminal__screen {
+    padding: 0.85rem;
+    padding-bottom: 4.25rem;
+    overflow-x: hidden;
+    font-size: clamp(0.66rem, 3.25vw, 0.78rem);
+    line-height: 1.36;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .mission-terminal__line,
+  .mission-terminal__current-line,
+  .mission-terminal__option {
+    min-height: 1.36em;
+  }
+
+  .mission-terminal__option {
+    padding-block: 0.18rem;
+  }
+
+  .mission-terminal__resume-link {
+    right: 0.7rem;
+    bottom: 0.65rem;
+    min-height: 1.9rem;
+    padding: 0 0.68rem;
+    font-size: 0.7rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mission-terminal__flicker,
   .mission-cursor {

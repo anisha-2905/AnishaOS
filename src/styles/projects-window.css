@@ -718,6 +718,154 @@
   }
 }
 
+@media (max-width: 768px) {
+  .window[aria-label='Projects.exe'] {
+    top: max(0.65rem, env(safe-area-inset-top));
+    left: 3vw;
+    width: 94vw;
+    min-width: 0;
+    min-height: 82vh;
+    min-height: 82dvh;
+    max-height: min(88vh, calc(100vh - var(--taskbar-height) - 1rem));
+    max-height: min(88dvh, calc(100dvh - var(--taskbar-height) - 1rem));
+  }
+
+  .window[aria-label='Projects.exe'] .window__content {
+    padding: 0.58rem;
+    overflow: hidden;
+  }
+
+  .projects-app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .projects-app__sidebar {
+    border-right: 0;
+    border-bottom: 1px solid rgb(244 234 255 / 0.14);
+  }
+
+  .projects-app__sidebar-header {
+    min-height: 2rem;
+    padding-inline: 0.58rem;
+    font-size: 0.68rem;
+  }
+
+  .projects-app__sidebar-toggle {
+    display: inline-flex;
+  }
+
+  .projects-app__tree {
+    display: flex;
+    height: auto;
+    max-width: 100%;
+    gap: 0.4rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.48rem;
+  }
+
+  .projects-app__tree[data-open='false'] {
+    display: none;
+  }
+
+  .projects-app__tree-item {
+    flex: 0 0 min(12.5rem, 76vw);
+    width: auto;
+    min-height: 2.35rem;
+    padding: 0.4rem 0.52rem 0.4rem 0.72rem;
+  }
+
+  .projects-app__tree-label {
+    font-size: 0.72rem;
+  }
+
+  .projects-app__main {
+    min-width: 0;
+    padding: 0.62rem;
+    overflow-x: hidden;
+  }
+
+  .projects-app__content {
+    gap: 0.78rem;
+    min-width: 0;
+  }
+
+  .projects-app__main-header {
+    display: grid;
+    gap: 0.5rem;
+    padding-bottom: 0.55rem;
+  }
+
+  .projects-app__category {
+    margin-bottom: 0.34rem;
+    font-size: 0.62rem;
+  }
+
+  .projects-app__main h2 {
+    font-size: clamp(1rem, 6vw, 1.28rem);
+    overflow-wrap: anywhere;
+  }
+
+  .projects-app__status {
+    width: max-content;
+    font-size: 0.62rem;
+  }
+
+  .projects-app__preview-screen {
+    min-height: 0;
+    padding: 0.55rem;
+  }
+
+  .projects-app__screenshot-button,
+  .projects-app__preview-empty {
+    width: 100%;
+    padding: 0.3rem;
+  }
+
+  .projects-app__description {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .projects-app__stack {
+    gap: 0.38rem;
+  }
+
+  .projects-app__stack span {
+    min-height: 1.58rem;
+    padding: 0.28rem 0.42rem;
+    font-size: 0.62rem;
+  }
+
+  .projects-app__features {
+    gap: 0.48rem;
+  }
+
+  .projects-app__features h3 {
+    font-size: 0.74rem;
+  }
+
+  .projects-app__features ul {
+    gap: 0.3rem;
+    font-size: 0.74rem;
+    line-height: 1.42;
+  }
+
+  .projects-app__actions {
+    gap: 0.48rem;
+  }
+
+  .projects-app__actions a {
+    flex: 1 1 8rem;
+    min-height: 2rem;
+    font-size: 0.7rem;
+  }
+}
+
 @media (max-width: 680px) {
   .window[aria-label='Projects.exe'] {
     top: 0.5rem;
@@ -773,6 +921,24 @@
 
   .projects-app__preview-modal {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .window[aria-label='Projects.exe'] {
+    top: max(0.65rem, env(safe-area-inset-top));
+    left: 3vw;
+    width: 94vw;
+    min-width: 0;
+    min-height: 82vh;
+    min-height: 82dvh;
+    max-height: min(88vh, calc(100vh - var(--taskbar-height) - 1rem));
+    max-height: min(88dvh, calc(100dvh - var(--taskbar-height) - 1rem));
+  }
+
+  .window[aria-label='Projects.exe'] .window__content {
+    padding: 0.58rem;
+    overflow: hidden;
   }
 }
 

@@ -104,3 +104,41 @@
     min-height: 16rem;
   }
 }
+
+@media (max-width: 768px) {
+  .window {
+    top: max(0.65rem, env(safe-area-inset-top));
+    left: 3vw;
+    width: 94vw;
+    min-width: 0;
+    min-height: min(24rem, 82vh);
+    min-height: min(24rem, 82dvh);
+    max-width: 94vw;
+    max-height: min(88vh, calc(100vh - var(--taskbar-height) - 1rem));
+    max-height: min(88dvh, calc(100dvh - var(--taskbar-height) - 1rem));
+    border-radius: 0.85rem;
+  }
+
+  .window__titlebar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    min-height: 2.45rem;
+    padding-inline: 0.75rem 0.45rem;
+  }
+
+  .window__title {
+    font-size: 0.78rem;
+  }
+
+  .window__close-button {
+    width: 2rem;
+    min-width: 2rem;
+    cursor: pointer;
+  }
+
+  .window__content {
+    overflow: auto;
+    padding: 0.72rem;
+  }
+}

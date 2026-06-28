@@ -174,3 +174,51 @@
     font-size: 0.72rem;
   }
 }
+
+@media (max-width: 768px) {
+  .taskbar {
+    gap: 0.42rem;
+    min-height: var(--taskbar-height);
+    padding: 0.42rem max(0.55rem, env(safe-area-inset-left)) max(0.42rem, env(safe-area-inset-bottom)) max(0.55rem, env(safe-area-inset-left));
+  }
+
+  .taskbar__start-button,
+  .taskbar__icon-link,
+  .taskbar__clock {
+    min-height: 2.05rem;
+    border-radius: 0.45rem;
+  }
+
+  .taskbar__start-button {
+    gap: 0.42rem;
+    max-width: 7.5rem;
+    padding-inline: 0.5rem;
+    font-size: 0.74rem;
+  }
+
+  .taskbar__start-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .taskbar__links {
+    flex: 0 1 auto;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .taskbar__icon-link {
+    width: 2.05rem;
+  }
+
+  .taskbar__icon-svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .taskbar__clock {
+    min-width: 4.9rem;
+    padding-inline: 0.42rem;
+    font-size: 0.68rem;
+  }
+}

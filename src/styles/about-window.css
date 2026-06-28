@@ -205,6 +205,72 @@
   }
 }
 
+@media (max-width: 768px) {
+  .about-log {
+    gap: 0.72rem;
+  }
+
+  .about-log__profile {
+    grid-template-columns: 1fr;
+    gap: 0.72rem;
+    padding: 0.65rem;
+  }
+
+  .about-log__avatar {
+    gap: 0.38rem;
+  }
+
+  .about-log__avatar-frame {
+    width: min(7.6rem, 44vw);
+  }
+
+  .about-log__avatar-image {
+    width: calc(100% - 0.58rem);
+    height: calc(100% - 0.58rem);
+  }
+
+  .about-log__avatar-caption {
+    font-size: 0.64rem;
+  }
+
+  .about-log__eyebrow {
+    margin-bottom: 0.58rem;
+    font-size: 0.9rem;
+  }
+
+  .about-log__stats {
+    gap: 0.4rem;
+  }
+
+  .about-log__stats div {
+    grid-template-columns: 1fr;
+    gap: 0.08rem;
+  }
+
+  .about-log__stats dt {
+    font-size: 0.64rem;
+  }
+
+  .about-log__stats dd {
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .about-log__section {
+    gap: 0.52rem;
+  }
+
+  .about-log__heading {
+    font-size: 0.76rem;
+  }
+
+  .about-log__copy {
+    gap: 0.58rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .about-log__eyebrow {
     animation: none;

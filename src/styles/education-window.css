@@ -826,6 +826,121 @@
   }
 }
 
+@media (max-width: 768px) {
+  .window[aria-label='Education.exe'] {
+    top: max(0.65rem, env(safe-area-inset-top));
+    left: 3vw;
+    width: 94vw;
+    min-width: 0;
+    min-height: 82vh;
+    min-height: 82dvh;
+    max-height: min(88vh, calc(100vh - var(--taskbar-height) - 1rem));
+    max-height: min(88dvh, calc(100dvh - var(--taskbar-height) - 1rem));
+  }
+
+  .education-map {
+    height: calc(100vh - var(--taskbar-height) - 3.85rem);
+    height: calc(100dvh - var(--taskbar-height) - 3.85rem);
+    min-height: 0;
+  }
+
+  .education-map__scroll {
+    overflow-x: hidden;
+  }
+
+  .education-rocket {
+    width: clamp(2.45rem, 11vw, 3.35rem);
+  }
+
+  .education-checkpoint {
+    width: clamp(6.9rem, 25vw, 8.7rem);
+  }
+
+  .education-checkpoint[data-size='sun'] {
+    width: clamp(7.4rem, 28vw, 9.4rem);
+  }
+
+  .education-checkpoint[data-size='earth'] {
+    width: clamp(15rem, 58vw, 19rem);
+  }
+
+  .earth-system .education-mission {
+    width: clamp(10.6rem, 43vw, 14rem);
+  }
+
+  .education-mission__marker {
+    padding: 0.28rem 0.48rem;
+    font-size: 0.6rem;
+  }
+
+  .education-checkpoint-card,
+  .education-checkpoint[data-card='left'] .education-checkpoint-card {
+    top: calc(100% + 0.62rem);
+    right: auto;
+    left: 50%;
+    width: min(17.5rem, 82vw);
+    max-width: 82vw;
+    gap: 0.5rem;
+    padding: 0.72rem;
+    transform: translate3d(-50%, 8px, 0);
+  }
+
+  .education-checkpoint[data-active='true'] .education-checkpoint-card,
+  .education-checkpoint:hover .education-checkpoint-card,
+  .education-checkpoint:focus-within .education-checkpoint-card {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  .education-checkpoint-card__mission {
+    font-size: 0.58rem;
+  }
+
+  .education-checkpoint-card h3 {
+    font-size: 0.86rem;
+  }
+
+  .education-checkpoint-card__meta {
+    gap: 0.32rem;
+  }
+
+  .education-checkpoint-card__meta span {
+    padding: 0.28rem 0.42rem;
+    font-size: 0.6rem;
+  }
+
+  .education-checkpoint-card p {
+    font-size: 0.76rem;
+  }
+
+  .education-orbit--moon img {
+    width: clamp(1.85rem, 8vw, 2.65rem);
+  }
+
+  .education-orbit--satellite img {
+    width: clamp(2.1rem, 9vw, 2.9rem);
+  }
+
+  .education-orbit > span:not(.education-orbit__panel) {
+    padding: 0.24rem 0.4rem;
+    font-size: 0.52rem;
+  }
+
+  .education-orbit__panel {
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    width: min(14rem, 76vw);
+    max-width: 76vw;
+    padding: 0.62rem;
+    transform: translate3d(-50%, -0.24rem, 0) scale(0.98);
+  }
+
+  .education-orbit:hover .education-orbit__panel,
+  .education-orbit:focus-visible .education-orbit__panel,
+  .education-orbit[data-active='true'] .education-orbit__panel {
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .education-map__stars,
   .education-map__nebula,
