@@ -35,6 +35,32 @@ export const projects: Project[] = [
     status: 'Prototype',
   },
   {
+    id: 'mewcafe',
+    title: 'MewCafe',
+    category: 'Desktop Application',
+    description:
+      'A cozy desktop productivity application built with Electron, React, and Vite. MewCafe combines the Pomodoro technique, task management, seasonal themes, ambient sounds, and a pixel-art interface to create a relaxing focus environment.',
+    techStack: [
+      'Electron',
+      'React',
+      'Vite',
+      'JavaScript',
+      'CSS',
+      'Framer Motion'
+    ],
+    features: [
+      'Pomodoro timer with focus and break sessions',
+      'Task management with local persistence',
+      'Daily productivity statistics',
+      'Custom frameless desktop window',
+    ],
+    githubUrl: 'https://github.com/anisha-2905/Mewcafe',
+    notionUrl: 'https://app.notion.com/p/anishadesigncasestudy/MewCafe-Focus-Timer-and-To-do-List-2fde6b5a3aab80b887b0c298f97b7cfe?v=787e6b5a3aab83aaa4ad08010401b715&source=copy_link',
+    liveUrl: '',
+    image: mewCafeImage,
+    status: 'Completed',
+  },
+  {
     id: 'digi-journal',
     title: 'Digi Journal',
     category: 'Productivity / Personal Tech',
@@ -81,22 +107,6 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/anisha-2905',
     notionUrl:'',
     image: '',
-    status: 'Completed',
-  },
-  {
-    id: 'mewcafe',
-    title: 'MewCafe',
-    category: 'Cafe / Frontend UI',
-    description:
-      'A playful cafe interface project with menu browsing, visual hierarchy, and a friendly ordering-style user experience.',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'Framer', 'UI Design'], 
-    features: [ 'Focus timer for study and work sessions', 
-      'Simple to-do task input flow', 'Minimal and friendly interface', 
-      'Built as a self-learning frontend project', ],
-    githubUrl: 'https://github.com/anisha-2905',
-    notionUrl: 'https://app.notion.com/p/anishadesigncasestudy/MewCafe-Focus-Timer-and-To-do-List-2fde6b5a3aab80b887b0c298f97b7cfe?v=787e6b5a3aab83aaa4ad08010401b715&source=copy_link',
-    liveUrl: 'https://mewcafe.framer.website/',
-    image: mewCafeImage,
     status: 'Completed',
   },
 ];
