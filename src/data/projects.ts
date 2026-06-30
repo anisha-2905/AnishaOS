@@ -61,22 +61,6 @@ export const projects: Project[] = [
     status: 'Completed',
   },
   {
-    id: 'digi-journal',
-    title: 'Digi Journal',
-    category: 'Productivity / Personal Tech',
-    description:
-      'A digital journaling application designed to organize personal notes, reflections, and daily writing in a clean software interface.',
-    techStack: ['React', 'Vite', 'TypeScript', 'CSS', 'react-pageflip'], 
-    features: [ 'Closed journal to open-book interaction flow', 
-      'Page-flip reading experience', 'Editable journal pages', 
-      'Planned backend support with Node.js, Express, and MongoDB', ],
-    githubUrl: 'https://github.com/anisha-2905/digi_journal',
-    notionUrl: '',
-    liveUrl: 'https://digjournal.vercel.app/',
-    image: digiJournalImage,
-    status: 'In Progress',
-  },
-  {
     id: 'seven-seas-travel',
     title: 'Seven Seas Travel',
     category: 'Travel / Web Experience',
@@ -92,6 +76,22 @@ export const projects: Project[] = [
     liveUrl: 'https://sevenseastravel.in/', 
     image: sevenSeasImage, 
     status: 'Completed',
+  },
+  {
+    id: 'digi-journal',
+    title: 'Digi Journal',
+    category: 'Productivity / Personal Tech',
+    description:
+      'A digital journaling application designed to organize personal notes, reflections, and daily writing in a clean software interface.',
+    techStack: ['React', 'Vite', 'TypeScript', 'CSS', 'react-pageflip'], 
+    features: [ 'Closed journal to open-book interaction flow', 
+      'Page-flip reading experience', 'Editable journal pages', 
+      'Planned backend support with Node.js, Express, and MongoDB', ],
+    githubUrl: 'https://github.com/anisha-2905/digi_journal',
+    notionUrl: '',
+    liveUrl: 'https://digjournal.vercel.app/',
+    image: digiJournalImage,
+    status: 'In Progress',
   },
   
 ];
