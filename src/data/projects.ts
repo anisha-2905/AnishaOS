@@ -2,6 +2,7 @@ import digiJournalImage from '@/assets/projects/digi-journal.png';
 import faceAttendanceImage from '@/assets/projects/face-attendance.png';
 import mewCafeImage from '@/assets/projects/mewcafe.png';
 import sevenSeasImage from '@/assets/projects/seven-seas-travel.png';
+import anisharesume from '@/assets/projects/anisharesume.png';
 
 export type Project = {
   id: string;
@@ -77,6 +78,32 @@ export const projects: Project[] = [
     image: sevenSeasImage, 
     status: 'Completed',
   },
+  {
+  id: 'resume-portfolio',
+  title: 'Resume Portfolio',
+  category: 'UI/UX Design / Personal Branding',
+  description:
+    'A responsive resume website designed and built in Framer to present my education, skills, projects, and professional profile through a clean, modern, and user-friendly interface.',
+  techStack: [
+    'Framer',
+    'UI Design',
+    'Responsive Design',
+    'Typography',
+    'Visual Hierarchy',
+    'Personal Branding',
+  ],
+  features: [
+    'Designed and developed a responsive personal resume website',
+    'Created a clean and professional interface with intuitive navigation',
+    'Optimized layouts for desktop, tablet, and mobile devices',
+    'Showcased education, projects, skills, and contact information',
+  ],
+  githubUrl: '',
+  notionUrl: '',
+  liveUrl: 'https://anisharesume.framer.website/',
+  image: anisharesume,
+  status: 'Completed',
+},
   {
     id: 'digi-journal',
     title: 'Digi Journal',
