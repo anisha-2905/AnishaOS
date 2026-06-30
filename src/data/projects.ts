@@ -93,20 +93,5 @@ export const projects: Project[] = [
     image: sevenSeasImage, 
     status: 'Completed',
   },
-  {
-    id: 'bioattend',
-    title: 'BioAttend',
-    category: 'Attendance / System Design',
-    description:
-      'A biometric attendance concept focused on improving reliability, record keeping, and verification in attendance systems.',
-    techStack: ['Python', 'Database Design', 'Fingerprint Sensor', 'UI Flow', 'Hardware Integration'], 
-    features: [ 'Fingerprint-based attendance verification flow', 
-      'Student and attendance record management', 
-      'Backend, frontend, database, and hardware integration', 
-      'Built as an academic system design project', ],
-    githubUrl: 'https://github.com/anisha-2905',
-    notionUrl:'',
-    image: '',
-    status: 'Completed',
-  },
+  
 ];
