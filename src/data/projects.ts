@@ -79,8 +79,8 @@ export const projects: Project[] = [
     status: 'Completed',
   },
   {
-  id: 'resume-portfolio',
-  title: 'Resume Portfolio',
+  id: 'resume',
+  title: 'Resume',
   category: 'UI/UX Design / Personal Branding',
   description:
     'A responsive resume website designed and built in Framer to present my education, skills, projects, and professional profile through a clean, modern, and user-friendly interface.',
